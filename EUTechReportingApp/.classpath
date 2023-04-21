@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SwingX"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JGoodies"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Animator"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/apachehssf"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

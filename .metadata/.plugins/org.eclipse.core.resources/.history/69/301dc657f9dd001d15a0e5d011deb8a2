@@ -1,0 +1,12 @@
+package ALPHAV01;
+
+import javax.swing.*;
+
+public class ExecGUI implements Runnable{
+
+	@Override
+	public void run() {
+		
+	}
+
+}

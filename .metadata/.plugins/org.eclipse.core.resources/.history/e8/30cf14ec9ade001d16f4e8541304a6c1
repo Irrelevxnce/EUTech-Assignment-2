@@ -1,0 +1,108 @@
+package ALPHAV01;
+
+import java.awt.EventQueue;
+import org.jdesktop.swingx.*;
+import org.jdesktop.swingx.prompt.PromptSupport;
+
+import com.jhlabs.*;
+import org.jdesktop.swingworker.*;
+
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import com.jgoodies.*;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import javax.swing.JLabel;
+
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
+import javax.swing.SpringLayout;
+import javax.swing.JTextField;
+import java.awt.SystemColor;
+import java.awt.Rectangle;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
+import javax.swing.JScrollPane;
+
+public class appMainWindow {
+
+	private JFrame frmEutechStudentReporting;
+	private JTextField nameField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					appMainWindow window = new appMainWindow();
+					window.frmEutechStudentReporting.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public appMainWindow() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmEutechStudentReporting = new JFrame();
+		frmEutechStudentReporting.getContentPane().setBounds(new Rectangle(5, 0, 0, 0));
+		frmEutechStudentReporting.getContentPane().setBackground(SystemColor.activeCaption);
+		frmEutechStudentReporting.setTitle("EUTech Student Reporting Tool");
+		frmEutechStudentReporting.setIconImage(Toolkit.getDefaultToolkit().getImage(appMainWindow.class.getResource("/ALPHAV01/EuTech_logo.png")));
+		frmEutechStudentReporting.setBounds(100, 100, 850, 550);
+		frmEutechStudentReporting.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		SpringLayout springLayout = new SpringLayout();
+		frmEutechStudentReporting.getContentPane().setLayout(springLayout);
+		
+		JLabel lblNewLabel = new JLabel("Enter your name and surname(s):");
+		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel, 30, SpringLayout.NORTH, frmEutechStudentReporting.getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, -275, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		frmEutechStudentReporting.getContentPane().add(lblNewLabel);
+		
+		nameField = new RoundedJTextField(1);
+		lblNewLabel.setLabelFor(nameField);
+		nameField.setHorizontalAlignment(JTextField.CENTER);
+		springLayout.putConstraint(SpringLayout.SOUTH, nameField, 53, SpringLayout.SOUTH, lblNewLabel);
+		nameField.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		springLayout.putConstraint(SpringLayout.EAST, nameField, -280, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
+		PromptSupport.setPrompt("Enter your name and surname here", nameField);
+		springLayout.putConstraint(SpringLayout.NORTH, nameField, 17, SpringLayout.SOUTH, lblNewLabel);
+		springLayout.putConstraint(SpringLayout.WEST, nameField, 0, SpringLayout.WEST, lblNewLabel);
+		frmEutechStudentReporting.getContentPane().add(nameField);
+		nameField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Save Report");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton.setActionCommand("Save Report");
+		springLayout.putConstraint(SpringLayout.NORTH, btnNewButton, -47, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, btnNewButton, -117, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
+		springLayout.putConstraint(SpringLayout.SOUTH, btnNewButton, -10, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, btnNewButton, -10, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
+		frmEutechStudentReporting.getContentPane().add(btnNewButton);
+		
+		JComboBox comboBox = new JComboBox();
+		springLayout.putConstraint(SpringLayout.NORTH, comboBox, 44, SpringLayout.SOUTH, nameField);
+		springLayout.putConstraint(SpringLayout.WEST, comboBox, 339, SpringLayout.WEST, frmEutechStudentReporting.getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, comboBox, -318, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
+		frmEutechStudentReporting.getContentPane().add(comboBox);
+		
+		JScrollBar scrollbar = new J
+	}
+}

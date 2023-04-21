@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="jgoodies-forms-1.8.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/EUTechReportingApp/jgoodies-forms-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Downloads/jar_files/swingx-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Downloads/jar_files/swing-worker-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Downloads/jar_files/filters-2.0.235.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Downloads/TimingFramework-0.55.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Downloads/poi-3.7.jar/poi-3.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

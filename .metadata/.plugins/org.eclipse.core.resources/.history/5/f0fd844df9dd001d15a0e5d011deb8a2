@@ -1,0 +1,14 @@
+package ALPHAV01;
+
+import javax.swing.*;
+
+public class ExecGUI implements Runnable{
+
+	@Override
+	public void run() {
+		JFrame frame = new JFrame("My First GUI");
+	       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	       frame.setSize(600,300);
+	}
+
+}

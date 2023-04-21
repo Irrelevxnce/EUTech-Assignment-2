@@ -1,0 +1,71 @@
+package ALPHAV01;
+
+import java.awt.EventQueue;
+
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPanel;
+
+import java.awt.Cursor;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+
+public class mainAppWindow {
+
+	private JFrame frmEutechStudentReporting;
+	private JPanel panel;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainAppWindow window = new mainAppWindow();
+					window.frmEutechStudentReporting.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public mainAppWindow() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmEutechStudentReporting = new JFrame();
+		frmEutechStudentReporting.setTitle("EUTech Student Reporting Tool");
+		frmEutechStudentReporting.setIconImage(Toolkit.getDefaultToolkit().getImage(mainAppWindow.class.getResource("/ALPHAV01/EuTech_logo.png")));
+		frmEutechStudentReporting.setBackground(new Color(172, 196, 249));
+		frmEutechStudentReporting.setBounds(100, 100, 400, 300);
+		frmEutechStudentReporting.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    Border margin = new EmptyBorder(10,10,10,10);
+	   
+
+}
+}
