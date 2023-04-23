@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="EUTechReportingTool:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EUTechReportingTool_jar</output-path>
+    <root id="archive" name="EUTechReportingTool.jar">
+      <element id="module-output" name="EUTechReportingTool" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/poi-3.7.jar/poi-3.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jar_files/swing-worker-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jgoodies-common-1_8_1/jgoodies-common-1.8.1/jgoodies-common-1.8.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jar_files/swingx-1.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jar_files/filters-2.0.235.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/timingframework-1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
