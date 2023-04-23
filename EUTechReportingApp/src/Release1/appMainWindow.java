@@ -5,6 +5,7 @@ import org.jdesktop.swingx.prompt.PromptSupport;
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 import java.awt.*;
+import java.util.Objects;
 
 enum Days {
     Monday, Tuesday, Wednesday, Thursday, Friday
@@ -76,7 +77,7 @@ public class appMainWindow {
         frmEutechStudentReporting.getContentPane().setLocation(dim.width / 2 - frmEutechStudentReporting.getContentPane().getSize().width / 2, dim.height / 2 - frmEutechStudentReporting.getContentPane().getSize().height / 2);
 
         JLabel lblName = new JLabel("Enter your name and surname(s):");
-        springLayout.putConstraint(SpringLayout.WEST, lblName, 285, SpringLayout.WEST, frmEutechStudentReporting.getContentPane());
+        springLayout.putConstraint(SpringLayout.WEST, lblName, 300, SpringLayout.WEST, frmEutechStudentReporting.getContentPane());
         springLayout.putConstraint(SpringLayout.SOUTH, lblName, -422, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
         lblName.setFont(new Font("Arial Narrow", Font.PLAIN, 17));
         lblName.setForeground(Color.WHITE);
@@ -85,6 +86,7 @@ public class appMainWindow {
         nameField = new RoundedJTextField(1);
         springLayout.putConstraint(SpringLayout.NORTH, nameField, 10, SpringLayout.SOUTH, lblName);
         springLayout.putConstraint(SpringLayout.WEST, nameField, 0, SpringLayout.WEST, lblName);
+        springLayout.putConstraint(SpringLayout.EAST, nameField, 0, SpringLayout.EAST, lblName);
         lblName.setLabelFor(nameField);
         nameField.setHorizontalAlignment(JTextField.CENTER);
         nameField.setFont(new Font("Arial Narrow", Font.PLAIN, 15));
@@ -93,7 +95,7 @@ public class appMainWindow {
         nameField.setColumns(12);
 
         JLabel lblDate = new JLabel("Enter date period (dd/mm/yyyy - dd/mm/yyyy):");
-        springLayout.putConstraint(SpringLayout.WEST, lblDate, -40, SpringLayout.WEST, nameField);
+        springLayout.putConstraint(SpringLayout.WEST, lblDate, -45, SpringLayout.WEST, nameField);
         springLayout.putConstraint(SpringLayout.SOUTH, lblDate, 30, SpringLayout.SOUTH, nameField);
         lblDate.setFont(new Font("Arial Narrow", Font.PLAIN, 17));
         lblDate.setForeground(Color.WHITE);
@@ -115,9 +117,9 @@ public class appMainWindow {
         btnSaveReport.setText("Save Report");
         width = btnSaveReport.getWidth();
         height = btnSaveReport.getHeight();
-        springLayout.putConstraint(SpringLayout.NORTH, btnSaveReport, -47, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
-        springLayout.putConstraint(SpringLayout.WEST, btnSaveReport, 684, SpringLayout.WEST, frmEutechStudentReporting.getContentPane());
-        springLayout.putConstraint(SpringLayout.SOUTH, btnSaveReport, -12, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
+        springLayout.putConstraint(SpringLayout.NORTH, btnSaveReport, -57, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
+        springLayout.putConstraint(SpringLayout.WEST, btnSaveReport, 700, SpringLayout.WEST, frmEutechStudentReporting.getContentPane());
+        springLayout.putConstraint(SpringLayout.SOUTH, btnSaveReport, -22, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
         btnSaveReport.setActionCommand("Save Report");
         btnSaveReport.setBackground(new Color(204, 255, 153));
         btnSaveReport.setForeground(Color.BLACK);
@@ -126,15 +128,6 @@ public class appMainWindow {
         btnSaveReport.addActionListener(e -> saveReport());
         frmEutechStudentReporting.getContentPane().add(btnSaveReport);
 
-        JScrollBar scrollbar = new JScrollBar();
-        springLayout.putConstraint(SpringLayout.EAST, nameField, -274, SpringLayout.WEST, scrollbar);
-        springLayout.putConstraint(SpringLayout.EAST, btnSaveReport, -12, SpringLayout.WEST, scrollbar);
-        springLayout.putConstraint(SpringLayout.SOUTH, scrollbar, 0, SpringLayout.SOUTH, frmEutechStudentReporting.getContentPane());
-        scrollbar.setPreferredSize(new Dimension(17, 513));
-        springLayout.putConstraint(SpringLayout.NORTH, scrollbar, 0, SpringLayout.NORTH, frmEutechStudentReporting.getContentPane());
-        springLayout.putConstraint(SpringLayout.EAST, scrollbar, 0, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
-        scrollbar.setBounds(200, 150, 150, frmEutechStudentReporting.getHeight());
-        frmEutechStudentReporting.getContentPane().add(scrollbar);
 
         ButtonGradient btnMonday = new ButtonGradient();
         btnMonday.setText("Modify Monday");
@@ -162,6 +155,13 @@ public class appMainWindow {
         springLayout.putConstraint(SpringLayout.EAST, btnTuesday, -514, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
         btnTuesday.setForeground(Color.BLACK);
         btnTuesday.setFont(new Font("Arial Narrow", Font.PLAIN, 12));
+        btnTuesday.setFocusPainted(false);
+        btnTuesday.setBackground(new Color(204, 255, 153));
+        btnTuesday.setActionCommand("Write to Tuesday");
+        btnTuesday.addActionListener(e -> {
+            daySelected = Days.Tuesday;
+            openTextEditor(daySelected);
+        });
         frmEutechStudentReporting.getContentPane().add(btnTuesday);
 
         ButtonGradient btnWednesday = new ButtonGradient();
@@ -202,8 +202,8 @@ public class appMainWindow {
         springLayout.putConstraint(SpringLayout.EAST, btnThursday, -26, SpringLayout.WEST, btnFriday);
         springLayout.putConstraint(SpringLayout.NORTH, btnFriday, 282, SpringLayout.NORTH, frmEutechStudentReporting.getContentPane());
         springLayout.putConstraint(SpringLayout.WEST, btnFriday, 670, SpringLayout.WEST, frmEutechStudentReporting.getContentPane());
-        springLayout.putConstraint(SpringLayout.SOUTH, btnFriday, -114, SpringLayout.NORTH, btnSaveReport);
-        springLayout.putConstraint(SpringLayout.EAST, btnFriday, -14, SpringLayout.WEST, scrollbar);
+        springLayout.putConstraint(SpringLayout.SOUTH, btnFriday, -104, SpringLayout.NORTH, btnSaveReport);
+        springLayout.putConstraint(SpringLayout.EAST, btnFriday, -30, SpringLayout.EAST, frmEutechStudentReporting.getContentPane());
         btnFriday.setForeground(Color.BLACK);
         btnFriday.setFont(new Font("Arial Narrow", Font.PLAIN, 12));
         btnFriday.setFocusPainted(false);
@@ -246,6 +246,18 @@ public class appMainWindow {
     }
 
     private void openTextEditor(Days daySelected) {
+        String [] tasks = new String[0];
+        if (mondayToParse != null || tuesdayToParse != null || wednesdayToParse != null || thursdayToParse != null || fridayToParse != null) {
+            switch (daySelected) {
+                case Monday -> tasks = mondayToParse.split("\n");
+                case Tuesday -> tasks = tuesdayToParse.split("\n");
+                case Wednesday -> tasks = wednesdayToParse.split("\n");
+                case Thursday -> tasks = thursdayToParse.split("\n");
+                case Friday -> tasks = fridayToParse.split("\n");
+            }
+        }
+        elementNumber = tasks.length - 1;
+        String[] finalTasks = tasks;
         EventQueue.invokeLater(() -> {
             JFrame frame1 = new JFrame(daySelected.toString());
             frame1.setIconImage(Toolkit.getDefaultToolkit().getImage(appMainWindow.class.getResource("/Release1/EuTech_logo.png")));
@@ -269,20 +281,38 @@ public class appMainWindow {
             inputpanel.setLayout(new FlowLayout());
             JTextField input = new JTextField(20);
             JButton button = new JButton("Enter");
-            elementNumber = 0;
+            frame1.getRootPane().setDefaultButton(button);
             button.addActionListener(e -> {
-                switch (daySelected) {
-                    case Monday -> mondayToParse = mondayToParse.concat("\n" + input.getText());
-                    case Tuesday -> tuesdayToParse = tuesdayToParse.concat("\n" + input.getText());
-                    case Wednesday -> wednesdayToParse = wednesdayToParse.concat("\n" + input.getText());
-                    case Thursday -> thursdayToParse = thursdayToParse.concat("\n" + input.getText());
-                    case Friday -> fridayToParse = fridayToParse.concat("\n" + input.getText());
-                }
-                elementNumber++;
-                textArea1.append(elementNumber + ". " + input.getText() + "\n");
-                input.setText("");
+                String toWrite = input.getText();
+               if (!toWrite.equalsIgnoreCase("")) {
+                   switch (daySelected) {
+                       case Monday -> mondayToParse = mondayToParse.concat("\n" + toWrite);
+                       case Tuesday -> tuesdayToParse = tuesdayToParse.concat("\n" + toWrite);
+                       case Wednesday -> wednesdayToParse = wednesdayToParse.concat("\n" + toWrite);
+                       case Thursday -> thursdayToParse = thursdayToParse.concat("\n" + toWrite);
+                       case Friday -> fridayToParse = fridayToParse.concat("\n" + toWrite);
+                   }
+                   elementNumber++;
+                   textArea1.append(elementNumber + ". " + input.getText() + "\n");
+                   input.setText("");
+               } else {
+                   JFrame frame = new JFrame("Error!");
+                   frame.setIconImage(Toolkit.getDefaultToolkit().getImage(appMainWindow.class.getResource("/Release1/EuTech_logo.png")));
+                   frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                   JLabel errLabel = new JLabel("The text box is empty!");
+                   errLabel.setFont(new Font("Arial Narrow", Font.PLAIN, 17));
+                   errLabel.setForeground(Color.WHITE);
+                   frame.add(errLabel);
+                   errLabel.setFont(new Font("Arial Narrow", Font.PLAIN, 12));
+                   errLabel.setForeground(Color.BLACK);
+                   errLabel.setHorizontalAlignment(JLabel.CENTER);
+                   frame.setPreferredSize(new Dimension(250, 100));
+                   frame.pack();
+                   frame.setLocationRelativeTo(frame1);
+                   frame.setVisible(true);
+                   frame.setResizable(false);
+               }
             });
-            elementNumber = 0;
             DefaultCaret caret = (DefaultCaret) textArea1.getCaret();
             caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
             panel1.add(scroller);
@@ -295,6 +325,13 @@ public class appMainWindow {
             frame1.setVisible(true);
             frame1.setResizable(false);
             input.requestFocus();
+            if (mondayToParse != null || tuesdayToParse != null || wednesdayToParse != null || thursdayToParse != null || fridayToParse != null) {
+                for (int i = 0; i < finalTasks.length; i++) {
+                    if (i != 0) {
+                        textArea1.append((i) + ". " + finalTasks[i] + "\n");
+                    }
+                }
+            }
         });
     }
 }

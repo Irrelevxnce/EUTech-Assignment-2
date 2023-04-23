@@ -35,7 +35,7 @@ public class Report {
     static HSSFWorkbook workbook;
     static CellStyle style1;
     static CellStyle style2;
-    Row [] rowTasks = new Row[5];
+    Row [] rowTasks;
 
 
     public Report(String parsedName, String parsedMonday, String parsedTuesday, String parsedWednesday, String parsedThursday, String parsedFriday, String parsedDate) {
@@ -120,6 +120,7 @@ public class Report {
                     friLength = fridayTasks.length;
                 }
                 int max = Math.max(monLength, Math.max(tueLength, Math.max(wedLength, Math.max(thuLength, friLength))));
+                rowTasks = new Row[max];
                 for (int i = 0 ; i < max - 1; i++) {
                     rowTasks[i] = sheet.createRow(i + 2);
                     rowTasks[i].createCell(0).setCellValue(writeToWB(mondayTasks, i));
